@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Import add hosts function
-source $(pwd)/addhosts.sh
+source "$(pwd)/addhosts.sh"
 
 # Initial setup
 echo "Welcome to 0xleaf's b0xinit!"
@@ -34,11 +34,11 @@ add_hosts
 
 # Prompt user to add credentials
 read -rp "Do you want to add credentials? [y/N] " creds
-creds={creds:-N}
+creds=${creds:-N} # Set N for default
 
 if [[ "${creds^^}" != "N" ]]; then
     # Add addcreds to source for its function
-    source $(pwd)/addcreds.sh
+    source "$(pwd)/addcreds.sh"
     add_creds
 fi
 

@@ -7,9 +7,9 @@ add_hosts() {
 
     # Prompt user for nmap
     read -rp "Do you want to run nmap for each hosts? [y/N] " nmap
-    nmap={nmap:-N} # Set N for default
+    nmap=${nmap:-N} # Set N for default
 
-    if [[ {$nmap^^} != "N" ]]; then
+    if [[ "${nmap^^}" != "N" ]]; then
         echo -e "nmap scan logs will be generated at $project_name/<HOSTNAME>/nmap.log.\n"
     fi
 
@@ -19,7 +19,7 @@ add_hosts() {
         read -rp "Host $i's hostname: " hostname
 
         # Create working directory for each host
-        mkdir $(pwd)/$project_name/$hostname
+        mkdir "$(pwd)/$project_name/$hostname"
         echo "Adding IP to ips.txt..."
         echo "$ip" >> "$(pwd)/$project_name/ips.txt"
         
@@ -29,7 +29,7 @@ add_hosts() {
 
         if [[ "${nmap^^}" != "N" ]]; then
             echo -e "Running nmap scan...\n"
-            nmap -sV -sC -vv -T4 -oN $(pwd)/$project_name/$hostname/nmap.log
+            nmap -sV -sC -vv -T4 -oN "$(pwd)/$project_name/$hostname/nmap.log"
         fi
     done
     

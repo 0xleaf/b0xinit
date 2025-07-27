@@ -21,11 +21,11 @@ add_hosts() {
         # Create working directory for each host
         mkdir $(pwd)/$project_name/$hostname
         echo "Adding IP to ips.txt..."
-        echo "$ip" >> $(pwd)/$project_name/ips.txt
+        echo "$ip" >> "$(pwd)/$project_name/ips.txt"
         
         # Export IPs for easy calling with hostname to init
         echo -e "Adding hostname:IP pair to init.sh. Invoking the variable '\$$hostname' will now output its IP.\n"
-        echo "export $hostname=$ip" >> $(pwd)/$project_name/init.sh
+        echo "export $hostname=$ip" >> "$(pwd)/$project_name/init.sh"
 
         if [[ {$nmap^^} != "N" ]]; then
             echo -e "Running nmap scan...\n"

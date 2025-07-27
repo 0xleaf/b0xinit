@@ -8,8 +8,8 @@ add_creds() {
         read -rp "Username: " username
         read -rp "Password/Hash: " password
 
-        echo "$username:$password" >> $(pwd)/$project_name/credentials.txt
-        echo "export $username=$password" >> $(pwd)/$project_name/init.sh
+        echo "$username:$password" >> "$(pwd)/$project_name/credentials.txt"
+        echo "export $username=$password" >> "$(pwd)/$project_name/init.sh"
 
         echo "Do you want to add more? [y/N]" loop
         loop=${loop:-N}

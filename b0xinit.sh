@@ -10,6 +10,10 @@ read -rp "Please input the project's name: " project_name
 echo -e "Creating $(pwd)/$project_name...\n"
 mkdir $(pwd)/$project_name
 
+# Create IP database
+echo -e "Creating IP list at $project_name/ips.txt...\n"
+touch $(pwd)/$project_name/ips.txt
+
 # Create init for easy loading of data later
 echo "Creating init file at $project_name/init.sh..."
 touch $(pwd)/$project_name/init.sh
@@ -25,23 +29,8 @@ if [[ -n $domain ]]; then
     echo -e "Adding domain to init.sh. Invoking the variable '\$d' will now output the domain name.\n"
 fi
 
-# Input hosts
-read -rp "Number of hosts: " num_hosts
-echo -e "Creating IP list at $project_name/ips.txt...\n"
-touch $(pwd)/$project_name/ips.txt
-
-# Prompt user for nmap
-read -rp "Do you want to run nmap for each hosts? [y/N] " nmap
-nmap={nmap:-N} # Set N for default
-
-if [[ {$nmap^^} != "N" ]]; then
-    echo -e "nmap scan logs will be generated at $project_name/<HOSTNAME>/nmap.log.\n"
-fi
-
-# Iterate add_hosts for each host
-for ((i = 1; i <= num_hosts; i++)); do
-    add_hosts
-done
+# Run addhosts function
+add_hosts
 
 # Prompt user to add credentials
 read -rp "Do you want to add credentials? [y/N] " creds

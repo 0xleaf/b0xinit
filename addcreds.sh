@@ -4,7 +4,7 @@
 add_creds() {
     export loop="Y"
     
-    while [[ {$loop^^} != "N"]]; do
+    while [[ "${loop^^}" != "N"]]; do
         read -rp "Username: " username
         read -rp "Password/Hash: " password
 

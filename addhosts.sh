@@ -27,7 +27,7 @@ add_hosts() {
         echo -e "Adding hostname:IP pair to init.sh. Invoking the variable '\$$hostname' will now output its IP.\n"
         echo "export $hostname=$ip" >> "$(pwd)/$project_name/init.sh"
 
-        if [[ {$nmap^^} != "N" ]]; then
+        if [[ "{$nmap^^}" != "N" ]]; then
             echo -e "Running nmap scan...\n"
             nmap -sV -sC -vv -T4 -oN $(pwd)/$project_name/$hostname/nmap.log
         fi

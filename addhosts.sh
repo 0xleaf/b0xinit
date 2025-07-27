@@ -35,9 +35,12 @@ add_hosts() {
     
 }
 
-# Prompt for project name
+# If script is being executed directly
+if [[ "${BASH_SOURCE[0]}" == "$0" ]]; then
+    # Prompt for project name
 
-echo -e "addhosts.sh // Script to add hosts to a project\n"
-read -rp "Please enter the project's name: " project_name
+    echo -e "addhosts.sh // Script to add hosts to a project\n"
+    read -rp "Please enter the project's name: " project_name
+fi
 
 add_hosts

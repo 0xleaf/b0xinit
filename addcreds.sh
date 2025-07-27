@@ -19,9 +19,11 @@ add_creds() {
     echo "Additionally, invoking the variable '\$<USERNAME>' will now output the user's password/hash."
 }
 
-# Prompt for project name
-
-echo -e "addcreds.sh // Script to add credentials to the database\n"
-read -rp "Please enter the project's name: " project_name
+# If script is being executed directly
+if [[ "${BASH_SOURCE[0]}" == "$0" ]]; then
+    # Prompt for project name
+    echo -e "addcreds.sh // Script to add credentials to the database\n"
+    read -rp "Please enter the project's name: " project_name
+fi
 
 add_creds

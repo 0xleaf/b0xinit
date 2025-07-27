@@ -36,7 +36,7 @@ add_hosts
 read -rp "Do you want to add credentials? [y/N] " creds
 creds={creds:-N}
 
-if [[ "{$creds^^}" != "N" ]]; then
+if [[ "${creds^^}" != "N" ]]; then
     # Add addcreds to source for its function
     source $(pwd)/addcreds.sh
     add_creds

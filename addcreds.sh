@@ -11,7 +11,7 @@ add_creds() {
         echo "$username:$password" >> "$(pwd)/$project_name/credentials.txt"
         echo "export $username=$password" >> "$(pwd)/$project_name/init.sh"
 
-        echo "Do you want to add more? [y/N]" loop
+        read -rp "Do you want to add more? [y/N]" loop
         loop=${loop:-N}
     done
 

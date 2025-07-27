@@ -24,6 +24,5 @@ if [[ "${BASH_SOURCE[0]}" == "$0" ]]; then
     # Prompt for project name
     echo -e "addcreds.sh // Script to add credentials to the database\n"
     read -rp "Please enter the project's name: " project_name
+    add_creds
 fi
-
-add_creds

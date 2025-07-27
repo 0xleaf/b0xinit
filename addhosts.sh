@@ -41,6 +41,5 @@ if [[ "${BASH_SOURCE[0]}" == "$0" ]]; then
 
     echo -e "addhosts.sh // Script to add hosts to a project\n"
     read -rp "Please enter the project's name: " project_name
+    add_hosts
 fi
-
-add_hosts

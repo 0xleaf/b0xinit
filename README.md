@@ -7,7 +7,7 @@ A script to handle data management of pentesting lab boxes. Currently very rudim
 - Map each hosts' hostnames and IPs
 - Add credentials to a single file
 - Easy IP and password recall (no need to swap windows to your Notes app anymore, just use the variables 
-\$\<HOSTNAME> and \$\<USERNAME> to get their passwords!)
+`$<HOSTNAME>` to get it's IP and `$<USERNAME>` to get their passwords!)
 - Automatic nmap scans for each IP
 
 ## To-do:

@@ -19,7 +19,7 @@ echo "Creating init file at $project_name/init.sh..."
 touch "$(pwd)/$project_name/init.sh"
 echo "#!/bin/bash" > "$(pwd)/$project_name/init.sh"
 echo "" >> "$(pwd)/$project_name/init.sh"
-echo -e "init.sh created. Load the file for subsequent use with 'source "$(pwd)/$project_name/init.sh"'\n"
+echo -e "init.sh created.\n"
 
 # Input domain
 read -rp "Input domain (optional): " domain
@@ -43,4 +43,5 @@ if [[ "${creds^^}" != "N" ]]; then
 fi
 
 . "$(pwd)/$project_name/init.sh"
-echo "Init complete! Happy hacking :)"
+echo "Init complete! Don't forget to source the file for use with 'source "$(pwd)/$project_name/init.sh"' to work with the variables."
+echo "Happy hacking! :)"
